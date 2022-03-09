@@ -1,0 +1,94 @@
+<div class="flex-container">
+<mat-card class="mainCard">
+<h2>Techniques</h2>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let ring of ring">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ring}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let technique of techniques | filterTechnologie:ring">
+        <mat-icon *ngIf="technique.published">
+          check
+        </mat-icon>
+        &nbsp;&nbsp;&nbsp; {{technique.name}}
+        <span class="space"></span>
+        <button mat-stroked-button (click)="onSelect(technique)">Edit</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+
+<mat-card class="mainCard">
+<h2>Tools</h2>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let ring of ring">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ring}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let tool of tools | filterTechnologie:ring">
+        <mat-icon *ngIf="tool.published">
+          check
+        </mat-icon>
+        &nbsp;&nbsp;&nbsp;  {{tool.name}}
+        <span class="space"></span>
+        <button mat-stroked-button (click)="onSelect(tool)">Edit</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+
+<mat-card class="mainCard">
+<h2>Platforms</h2>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let ring of ring">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ring}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let platform of platforms | filterTechnologie:ring">
+        <mat-icon *ngIf="platform.published">
+          check
+        </mat-icon>
+        &nbsp;&nbsp;&nbsp;  {{platform.name}}
+        <span class="space"></span>
+        <button mat-stroked-button (click)="onSelect(platform)">Edit</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+
+<mat-card class="mainCard">
+<h2>Languages & Frameworks</h2>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let ring of ring">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ring}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let languageframework of languagesframeworks | filterTechnologie:ring">
+        <mat-icon *ngIf="languageframework.published">
+          check
+        </mat-icon>
+        &nbsp;&nbsp;&nbsp;  {{languageframework.name}}
+        <span class="space"></span>
+        <button mat-stroked-button (click)="onSelect(languageframework)">Edit</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+</div>
+<app-tech-edit-form [hidden]="!editFormTriggerd" [technologie]="selectedTechnologie" [showDetailForm]="editFormTriggerd" (formSubmittedEvent)="visibleUpdated($event)"></app-tech-edit-form>

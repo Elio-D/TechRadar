@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <span *ngIf="userService.loggedInAsAdmin()"> Technologie-Radar - Admin-View</span>
+    <span *ngIf="userService.loggedInAsUser()">Technologie-Radar - User-View</span>
+    <span class="spacer"></span>
+    <app-dashboard [showNewTechForm]="showNewTechForm" (formTriggerdEvent)="visibleUpdated($event)"></app-dashboard>
+</mat-toolbar>
+<app-tech-add-form [hidden]="!showNewTechForm" [showNewTechForm]="showNewTechForm"
+    (formTriggerdEvent)="visibleUpdated($event)"></app-tech-add-form>

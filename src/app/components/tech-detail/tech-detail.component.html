@@ -1,0 +1,42 @@
+<mat-card *ngIf="technologie">
+    <mat-card-content>
+        <table mat-table class="tableDetail">
+            <tr>
+                <th>name: </th>
+                <td>
+                    {{technologie.name}}
+                </td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+                <th>kategorie: </th>
+                <td>
+                    {{technologie.kategorie}}
+                </td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+                <th>ring: </th>
+                <td>
+                    {{technologie.ring}}
+                </td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+                <th>Beschreibung Technologie: </th>
+                <td>
+                    {{technologie.beschreibungTechnologie}}
+                </td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+                <th>Beschreibung EInordung: </th>
+                <td>
+                    {{technologie.beschreibungEinordung}}
+                </td>
+            </tr>
+        </table><br>
+
+        <button mat-stroked-button (click)="onClose()">Schliessen</button>
+    </mat-card-content>
+</mat-card>

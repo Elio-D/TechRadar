@@ -1,0 +1,38 @@
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  justify-content: space-around;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+  .mainCard {
+  margin: 15px;
+  flex: 1 1 calc(50% - 50px);
+}
+
+.space {
+    flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .mainCard {
+    margin: 15px;
+    flex: 1 1 calc(100% - 50px);
+  }
+}
+
+mat-accordion {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+}

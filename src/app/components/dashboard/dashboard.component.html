@@ -1,0 +1,7 @@
+<button mat-raised-button (click)="onSelect()"
+  *ngIf="!showNewTechForm && userService.loggedInAsAdmin()">
+  Technologie erfassen
+</button>
+<button mat-icon-button aria-label="logoutIcon" (click)="userService.logoutUser()">
+  <mat-icon>logout</mat-icon>
+</button>

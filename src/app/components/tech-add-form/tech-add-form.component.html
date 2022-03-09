@@ -1,0 +1,52 @@
+<mat-card *ngIf="showNewTechForm">
+  <mat-card-content>
+      <form name="form" (ngSubmit)="onSubmit()" #technologieForm="ngForm">
+        <h2>Technologie erfassen</h2>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Name der Technologie</mat-label>
+            <input matInput type="text" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+            <mat-error *ngIf="name.invalid">Bitte eine Namen eintragen</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Kategorie</mat-label>
+            <mat-select id="kategorie" required [(ngModel)]="model.kategorie" name="kategorie" #kat="ngModel">
+              <mat-option *ngFor="let kat of kategorie" [value]="kat">{{kat}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="kat.invalid">Bitte eine Kategorie auswählen</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Ring</mat-label>
+            <mat-select id="ring" [(ngModel)]="model.ring" name="ring">
+              <mat-option *ngFor="let ring of ring" [value]="ring">{{ring}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Beschreibung der Technologie</mat-label>
+            <input matInput type="text" id="beschreibungTechnologie" required
+              [(ngModel)]="model.beschreibungTechnologie" name="beschreibungTechnologie"
+              #beschreibungTechnologie="ngModel">
+            <mat-error *ngIf="beschreibungTechnologie.invalid">Bitte eine Beschreibung zur Technologie hinzufügen
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Beschreibung der Einordung</mat-label>
+            <input matInput type="text" id="beschreibungEinordung" [(ngModel)]="model.beschreibungEinordnung"
+              name="beschreibungEinordung">
+          </mat-form-field>
+
+          <div id="published-checkbox">
+          <mat-checkbox [(ngModel)]="model.published" name="published">Technologie publizieren</mat-checkbox>
+        </div>
+
+        </div>
+        <button mat-stroked-button type="submit" [disabled]="!technologieForm.form.valid">Erfassen</button>
+        &nbsp;&nbsp;&nbsp;
+        <button mat-stroked-button type="button" (click)="onCancel()"><mat-icon>highlight_off</mat-icon> Abbrechen</button>
+      </form>
+  </mat-card-content>
+</mat-card>
